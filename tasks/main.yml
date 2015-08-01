@@ -1,2 +1,11 @@
 ---
-# tasks file for leiningen
+- name: download leiningen
+  sudo: yes
+  command: wget -O /usr/bin/lein https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
+  args:
+    creates: /usr/bin/lein
+
+- name: chmod leiningen
+  sudo: yes
+  file: path=/usr/bin/lein mode=755
+
